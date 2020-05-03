@@ -14,8 +14,16 @@ initialize <provider> with store....<Provider store={store}
 
 //We do not directly modify state in Redux...because Redux is based on Functional programming principles...where we don't directly modify anything
 
+we create a function(reducer) that take store as argumnent and returns the updated store
+
+we use spread operator {...state} to copy the store within the function
+
+
+
 
 -------------------------------Reducer Creation------------------------
+
+
 Only reducer have power to update state.
 
 Reducer is passed as argument to store...i.e const store=createStore(reducer)
@@ -30,8 +38,18 @@ reducer take (state,action) as argumnet.... reducer should have some initial dat
 
 then reducer is imported and passed to store in "index.js 
 
-....................Subscribe redux by Component............
+///reducer is a function that takes the current instance of the store and returns the updated store
 
+///what to update/change in state is told by action
+
+function reducer(store,action){
+      
+}
+//actions are the JS objects that tell what just happened or can be called as event
+
+
+....................Subscribe redux by Component............
+ 
 now there is some initail data available in store 
 
 to use that data by "App.js" ...this component need to subscribe to store
@@ -45,6 +63,7 @@ and HigherOrder componnet takes a component as argument
 connect is wrapped to App component like....i.e  export default connect()(App);
 
 now we can use store data in our component using "props"
+
 
 -------------------Dispatch Action----------------------------------
 
@@ -93,3 +112,7 @@ we first import {combineReducer} from "redux"
 ---------------------------------Sequence of Opertions....................
 
 Component Subscribe-->Action-->Reducer-->Store
+
+Note:when user creates an action ,we create a action object and dispatch it...store object has dispatch method that takes an action
+it will then forward this action to reducer(so we don't call reducer directly,we just work with store),store is incharge of calling the reducer
+then reducer compute the new state and returns it then store will change the state internally and notify the UI components about the update 
