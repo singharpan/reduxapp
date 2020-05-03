@@ -12,6 +12,9 @@ wrap "App" component with provider
 
 initialize <provider> with store....<Provider store={store}
 
+//We do not directly modify state in Redux...because Redux is based on Functional programming principles...where we don't directly modify anything
+
+
 -------------------------------Reducer Creation------------------------
 Only reducer have power to update state.
 
